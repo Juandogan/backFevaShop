@@ -15,13 +15,13 @@ app.use(cors()); //ojo la posicion tiene que estar antes del app.use('/api', req
 
 
 
-// app.use(express.static('dist/administrador', {
-//     setHeaders: (res, path, stat) => {
-//       if (path.endsWith('.js')) {
-//         res.set('Content-Type', 'application/javascript');
-//       }
-//     }
-//   }));
+app.use(express.static('client', {
+    setHeaders: (res, path, stat) => {
+      if (path.endsWith('.js')) {
+        res.set('Content-Type', 'application/javascript');
+      }
+    }
+  }));
 
 app.get('*', function(req, res, next){res.sendFile(path.resolve('client/index.html'));
 }) 
